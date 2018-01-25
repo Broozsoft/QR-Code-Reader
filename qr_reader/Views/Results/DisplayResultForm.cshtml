@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Results";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+@using System.Xml;
+<div class="row">
+    <div class="col-md-4" id="here">
+
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3>Scan QR Code</h3>
+        <form id="scan_form">
+            <div class="form-group">
+                <label class="control-label">QR Code</label>
+                <input value="1000734451 2464490-C 10184" name="qr_code" class="form-control" id="qr_code" />
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    $("#scan_form").submit(
+        function () {
+            var data = $("#qr_code").val();
+            $.get("SearchQrCode", { QrCode: data })
+                .done(function (data) {
+                    $("#here").html(data);
+                });
+            return false
+       });
+</script>
+
+

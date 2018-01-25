@@ -1,0 +1,42 @@
+﻿@model qr_reader.Models.Article
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ArticleNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ArticleNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Uplimit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Uplimit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lowlimit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lowlimit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Article_type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Article_type.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,60 @@
+﻿@using System.Xml;
+@{
+    ViewData["Title"] = "AddResult";
+
+    Layout = "_adminLayout";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>@ViewBag.testName</h3>
+        <form id="resutlTest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @foreach (XmlNode item in ViewBag.nodes)
+            {
+                <div class="form-group">
+                    <label class="control-label">@item.LocalName.ToString()</label>
+                    <input name="@item.LocalName.ToString()" class="form-control" />
+
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3>Scan QR Code</h3>
+        <form id="scan_form">
+                <div class="form-group">
+                    <label class="control-label">QR Code</label>
+                    <input value="1000734451 2464490-C 10184" name="qr_code" class="form-control" id="qr_code"/>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+        </form>
+    </div>
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+
+    $("#resutlTest").submit(function () {
+        var data = $("#resutlTest").serialize();      
+        $.ajax({
+            type: "POST",
+            data: { data: data },
+            url: "AddResult",
+            success: function (result) {
+
+                }
+        });
+        $.post("AddResult", { name: "John", time: "2pm" })
+            .done(function (data) {
+                alert("Data Loaded: " + data);
+            });
+        return false;
+});
+</script>
+

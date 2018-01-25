@@ -1,0 +1,7 @@
+{
+  "directory": "wwwroot/lib",
+  "proxy":"http://Z003VN4R:Hh@15987@194.138.0.7:9400",
+  "https-proxy":"http://Z003VN4R:Hh@15987@194.138.0.7:9400",
+  "strict-ssl": false
+  
+}
